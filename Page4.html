@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet prefetch" href="https://cdn.rawgit.com/michalsnik/aos/2.0.4/dist/aos.css">
+    <link href="https://fonts.googleapis.com/css?family=Josefin+Sans" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Bitter" rel="stylesheet">
+    <style>
+        body{
+            height: 100%;
+            margin: 0;
+        }
+        .container{
+
+            width: 100%;
+            height: 100%;
+        }
+        .container>div{
+            display: inline-block;
+            vertical-align: top;
+            height: 100vh;
+        }
+        .container>.menu,.container>.menu>.myclass{
+            width: 25%;
+        }
+        .container>.menu>.myclass{
+            position: fixed;
+            height: 100vh;
+            display: inline-block;
+            background: url(img/armenia_2013-2-3.jpg) no-repeat center center fixed;
+            background-position: -247px -135px;
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            -o-background-size: cover;
+            background-size: cover;
+            box-shadow: 0px 0px 30px 5px #737373;
+        }
+        .container>.menu>.myclass>ul{
+            position: relative;
+        }
+        .container>.menu>.myclass:before{
+            content: '';
+            width: 100%;
+            display: inline-block;
+            height: 100vh;
+            position: absolute;
+            top: 0px;
+            background-color: rgba(12, 113, 165, 0.66);
+        }
+        .container>.content{
+            width: 75%;
+            height: auto;
+            background-image: url(img/back.png);
+            background-position: -5px;
+        }
+        .container>.content>div{
+            padding: 15px;
+        }
+
+        .content .infodivbox{
+            width: 100%;
+            display: inline-block;
+        }
+        .content .lineinfobox{
+            width: 300px;
+            display: inline-block;
+            vertical-align: top;
+        }
+        .lineinfobox{
+            display: none;
+        }
+        .content .showdiv{
+            text-align: center;
+        }
+        .content .showdiv>.lineinfobox{
+            display: inline-block;
+
+        }
+        .infodivbox>div{
+            padding: 15px;
+        }
+        .infodivbox>div>div{
+            width: 100%;
+            height: 350px;
+            box-shadow: 0px 0px 15px -5px black;
+            background-color: white;
+            border-radius: 2px;
+            font-family: 'Josefin Sans', sans-serif;
+            font-size: 20px;
+            text-align: left;
+        }
+        .infodivbox>div>div>img
+        {
+            width: 100%;
+        }
+
+
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="menu">
+        <div class="myclass">
+                <ul>
+                    <li>
+                        Menu1
+                    </li>
+                    <li>
+                        Menu2
+                    </li>
+                    <li>
+                        Menu3
+                    </li>
+                    <li>
+                        Menu
+                    </li>
+                </ul>
+        </div>
+
+    </div><div class="content">
+        <div>
+            <div class="showdiv"><div class="lineinfobox">
+
+                </div><div class="lineinfobox">
+
+                </div><div class="lineinfobox">
+
+                </div><div class="lineinfobox">
+
+                </div></div>
+
+            <div class="infodivbox">
+                <div>
+
+                    <div>
+                        <img src="http://armenia-travel.am/img/tour/1.jpg">
+                        Yerevan
+                    </div>
+
+                </div>
+            </div>
+            <div class="infodivbox">
+                <div>
+                    <div>
+                        <img src="http://armenia-travel.am/img/tour/5.jpg">
+                        Etchmiadzin
+                    </div>
+                </div>
+            </div>
+            <div class="infodivbox">
+                <div>
+                    <div>
+                        <img src="http://armenia-travel.am/img/tour/2.jpg">
+                        Garni-Geghard
+                    </div>
+                </div>
+            </div>
+            <div class="infodivbox">
+                <div>
+                    <div>
+                        <img src="http://armenia-travel.am/img/tour/6.jpg">
+                        Khor-Virap - Areni - Noravank
+                    </div>
+                </div>
+            </div>
+            <div class="infodivbox">
+                <div>
+                    <div>
+                        <img src="http://armenia-travel.am/img/tour/3.jpg">
+                        Tatev
+                    </div>
+                </div>
+            </div>
+            <div class="infodivbox">
+                <div>
+                    <div>
+                        <img src="http://armenia-travel.am/img/tour/35.jpg">
+                        Jermuk
+                    </div>
+                </div>
+            </div>
+            <div class="infodivbox">
+                <div>
+                    <div>
+                        <img src="http://armenia-travel.am/img/tour/4.jpg">
+                        Lake Sevan
+                    </div>
+                </div>
+            </div>
+            <div class="infodivbox">
+                <div>
+                    <div>
+                        <img src="http://armenia-travel.am/img/tour/37.jpg">
+                        Dilijan
+                    </div>
+                </div>
+            </div>
+            <div class="infodivbox">
+                <div>
+                    <div>
+                        <img src="http://armenia-travel.am/img/tour/31.jpg">
+                        Haghpat-Sanahin-Axtala
+                    </div>
+                </div>
+            </div>
+            <div class="infodivbox">
+                <div>
+                    <div>
+                        <img src="http://armenia-travel.am/img/tour/8.jpg">
+                        Aragacotn
+                    </div>
+                </div>
+            </div>
+            <div class="infodivbox">
+                <div>
+                    <div>
+                        <img src="http://armenia-travel.am/img/tour/36.jpg">
+                        Tsaghkadzor
+                    </div>
+                </div>
+            </div>
+            <div class="infodivbox">
+                <div>
+                    <div>
+                        <img src="http://armenia-travel.am/img/tour/38.jpg">
+                        Enokavan
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+<script src="https://cdn.rawgit.com/michalsnik/aos/2.0.4/dist/aos.js"></script>
+
+<script>
+    lineinitial = 300;
+    swidth = $(".showdiv").width();
+    nline = Math.floor(swidth/lineinitial);
+    htmllinecode = '';
+    for(i=0;i<nline;i++){
+        htmllinecode +='<div class="lineinfobox"></div>';
+    }
+    $('.showdiv').html(htmllinecode);
+
+    var switcher = 0;
+    $('.infodivbox').each(function (key,value) {
+
+            random = 10+Math.random()*150;
+
+            if(key==0){
+              ///  random = 0;
+            }
+
+//            random = switcher * 50;
+
+            $(this).css('margin-top',random+'px').addClass('aos-init aos-animate').attr('data-aos','slide-up');
+            $('.lineinfobox:eq('+switcher+')').append(this);
+
+            switcher++;
+            if(switcher == nline){
+                switcher = 0;
+            }
+    });
+    AOS.init({
+        duration: 1200,
+    })
+
+</script>
+</body>
+</html>

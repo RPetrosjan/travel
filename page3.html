@@ -1,0 +1,1223 @@
+<html>
+<head>
+
+    <style>
+        body{
+            margin: 0;
+        }
+        #container-outer {
+            background: #eee;
+        }
+
+        #container-inner {
+            float:left;
+            background: #555;
+            position: relative;
+            right:75%;
+            height: 100%;
+            width: 100%;
+        }
+
+        #sidebar {
+            float: left;
+            width: 25%;
+            position: relative;
+            left: 75%;
+        }
+
+        #content {
+            float: left;
+            width: 75%;
+            position: relative;
+            left: 75%
+        }
+        #content>p{
+
+            padding: 15px;
+        }
+    </style>
+</head>
+<body>
+
+<div id="container-outer">
+    <div id="container-inner">
+
+        <div id="sidebar">
+            <p>Sidebar</p>
+        </div>
+
+        <div id="content">
+            <p>Main content</p>
+            <p>
+
+
+
+                Subscribe to TheVanBlog
+                BookAboutContactArchivesNotebookLogin
+                4 Methods For Creating Equal Height Columns In CSS
+                by Steven Bradley on
+                June 9, 2011
+                Archived in CSS
+
+                You are here:
+                Home / Blog / CSS /
+                4 Methods For Creating Equal Height Columns In CSS
+
+
+
+                One of the few things that isn’t as simple to do with css as it should be is creating columns of equal heights. A variety of methods do exist, each with its pros and cons and I want to present 4 methods here.
+
+                Let’s think for a moment about what we mean by equal height columns.
+
+                We generally don’t mean that we want the content inside each column to be of equal height. If that were the case there really isn’t a problem as the height of the columns will naturally be the same height.
+
+                What we really mean by equal height columns is having the columns look as though they’re of equal height when the content inside isn’t.
+
+                We can achieve that by making the css backgrounds behind the column appear to be of equal height. Ultimately we’re faking equal heights.
+
+                For those of you wanting to get directly to the demos and code you can click any of the images above the sections below and be taken to the appropriate demo.
+
+                Equal height columns with faux Columns
+
+                Faux Columns
+                Faux columns have been around a long time. 2004 to be exact. For that same long time they were and maybe still are the deFacto method for creating columns of equal height.
+
+                It’s a simple trick using a background image that’s repeated vertically. An example of this repeating image is seen below. I’ve increase the height so you can see it.
+
+                Faux columns background
+
+                The image is usually created as a single px in height and it’s width will match the width of your layout. Where one column becomes another in the layout, the faux column image will change as well.
+
+                The html
+                For this example we’ll use html that’s similar to what we’ve been working with the last few weeks, though I’ll skip the header and footer to focus on the columns.
+
+                1
+                2
+                3
+                4
+                5
+                6
+                7
+                8
+                9
+                10
+                11
+                <div id="container">
+
+                    <div id="sidebar">
+            <p>Sidebar</p>
+        </div>
+
+        <div id="content">
+            <p>Main content</p>
+        </div>
+
+    </div>
+    You could use the body as the container, but I’m choosing to use a container div so you can see that this technique can work for setting up columns inside a part of your overall layout in addition to the overall layout itself.
+
+    The css
+    1
+    2
+    3
+    4
+    5
+    6
+    7
+    8
+    9
+    10
+    11
+    12
+    13
+    14
+    15
+    16
+    #container {
+    width:960px;
+    margin:0 auto;
+    background: url("faux-columns.png") repeat-y;
+    overflow: hidden
+    }
+
+    #sidebar {
+    float:left;
+    width:340px;
+    }
+
+    #content {
+    float:left;
+    width:620px;
+    }
+    The css here is pretty simple. Floating and setting widths on #sidebar and #content should be familiar to you by now as well as setting the width and margin on #container.
+
+    What’s new here is setting the faux-column background image on the container and using overflow: hidden on the container.
+
+    We need to set the overflow property to ensure the container div doesn’t collapse. Because everything inside is floated we need to force it back open.
+
+    The container will then always be the same height as the longer of the 2 columns and the background image will make it appear as though the shorter column is also the same height.
+
+    This method works best for fixed width layouts though it can work with more fluid layouts as well.
+
+    You also aren’t limited to a simple color change in backgrounds. Borders, shadows, patterns, etc. can be added by adding them in the appropriate place on the faux-column image.
+
+    For patterns you might choose to create an image more than 1px in height.
+
+    Pros:
+
+    Easy to set up
+    Work regardless of which column is the longer or shorter
+    Cons:
+
+    Requires an image, which requires an additional http request
+    Any change to the layout requires the image be reworked
+    Need to know what your layout will look like in advance to create the image
+    Pseudo method for creating equal height columns
+
+    Pseudo Columns
+    I’ve never cared for faux columns. Not because it’s a bad method, but because I have a thing about never using an image for a solid background color.
+
+    Because of that I developed my own method for achieving equal height columns, which for lack of a better term I’ll call pseudo columns.
+
+    It works similarly to faux columns as it involves setting a background on the container. It’s not a general approach to equal height columns and has a very limited use case, but when you encounter that use case it works well and easily.
+
+    The html
+    We’ll use the same html as the faux column method above.
+
+    1
+    2
+    3
+    4
+    5
+    6
+    7
+    8
+    9
+    10
+    11
+    <div id="container">
+
+        <div id="sidebar">
+            <p>Sidebar</p>
+        </div>
+
+        <div id="content">
+            <p>Main content</p>
+        </div>
+
+    </div>
+    Once again no header and footer so we can focus on the columns.
+
+    The css
+    The css is again quite simple. I’ve gone with a fluid layout here for variety, but you could just as easily set this up to be fixed width.
+
+    1
+    2
+    3
+    4
+    5
+    6
+    7
+    8
+    9
+    10
+    11
+    12
+    13
+    14
+    15
+    16
+    #container {
+    background: #555;
+    overflow: hidden
+    }
+
+    #content {
+    float:left;
+    width:75%;
+    background:#eee;
+    }
+
+    #sidebar {
+    float:left;
+    width:25%;
+    background:#555;
+    }
+    Other than using % instead of px, you’ll notice that here I’ve set the background colors on #content and #sidebar. You’ll only need to set it on whichever column will be longer, but here I’ve set it on both.
+
+    The main change from faux columns is instead of a background image we set a background color. It’s the same principle in that we’re allowing the background of the container to show through beneath the shorter columns.
+
+    The limitation is we need to know which column will be shorter in advance and ideally that same column would be shorter on every page of the site.
+
+    That sounds like a pretty big limitation, but I find in practice one of the two columns is usually shorter across most, if not all, pages and for those pages where it might not be the case, it’s easy enough to add a little more or less content to make it so.
+
+    Pros:
+
+    Easy to set up
+    Easy to maintain
+    Cons:
+
+    Harder to implement on more than 2 or 3 columns
+    Requires you know the relative heights of columns in advance
+    Doesn’t work as well when different columns are longer or shorter on different pages
+    This method is far from perfect, but you might be surprised how often it can be applied in practice.
+
+    Equal height columns with borders and negative margins
+
+    Borders and Negative Margins
+    This is a method I came across not too long ago on a Smashing Magazine article by Thierry Koblentz, though I later found an article by Alan Pearce on A List Apart written a few years ago detailing the same method.
+
+    It uses borders and negative margins to give the appearance of the equal height columns.
+
+    The html
+    Nothing new in the html here compared to what we’ve seen above. In his article Thierry uses the body as the container, but I’ll stick to using a container div as is my usual practice.
+
+    1
+    2
+    3
+    4
+    5
+    6
+    7
+    8
+    9
+    10
+    11
+    <div id="container">
+
+        <div id="sidebar">
+            <p>Sidebar</p>
+        </div>
+
+        <div id="content">
+            <p>Main content</p>
+        </div>
+
+    </div>
+    The css
+    The css is where things get interesting. The container is just being used to fix the width and center the layout. The interesting stuff happens on #content and #sidebar.
+
+    1
+    2
+    3
+    4
+    5
+    6
+    7
+    8
+    9
+    10
+    11
+    12
+    13
+    14
+    15
+    16
+    17
+    #container {
+    width:960px;
+    margin: 0 auto;
+    }
+
+    #content {
+    float:left;
+    width:700px;
+    border-left: 260px solid #555;
+    }
+
+    #sidebar {
+    float: left;
+    width:260px;
+    margin-right: -260px;
+    position: relative;
+    }
+    All the background colors in this method are set on the #content column. We set it’s background as normal and then give it a left border equal to the width of the sidebar. We also set the border color to what we want the sidebar background to be.
+
+    If we stop here you’ll see both columns displayed where you want, however our border-left has pushed the actual sidebar off the page and we need to bring it back.
+
+    First we give the sidebar a negative right margin equal to its width (or the width of the left border of the content, which are the same). That will bring the sidebar back to where we want, but it still isn’t visible.
+
+    The problem is in the stacking order of the 2 divs. #container is sitting on top of #sidebar so we need to move #sidebar to the front. We do that by adding position: relative to the sidebar and now it’s content is visible.
+
+    Pros:
+
+    Works regardless of which columns is longer or shorter
+    Easy to set up once you understand how it works
+    Easy to maintain
+    Cons:
+
+    Sidebar width needs to be fixed as border-width only accepts absolute measurements
+    Negative margins can potentially trip up some older versions of IE
+    I’d encourage you to read both articles I linked to above as they offer more details than I am here. Both contain code for using this method with a third column and Thierry’s article talks about setting up borders between the columns.
+
+    Equal height columns with offset containers
+
+    Offset Columns and Containers
+    This last method is one created by Matthew James Taylor. Of all the methods presented here this one will work under the most use cases.
+
+    I’ve saved it for the end since it’s a little more complex and you might need to read through it a few times to understand how it works.
+
+    The html
+    The html is similar to what we’ve seen above though you’ll note an extra container div to what we’ve seen before.
+
+    1
+    2
+    3
+    4
+    5
+    6
+    7
+    8
+    9
+    10
+    11
+    12
+    13
+
+    As with the other methods we’ll use these containers to set background colors that will appear as though they belong to our columns.
+
+    The css
+    There’s a lot more going on here than what we’ve seen to this point. Both #sidebar and #content are floated left and given a width, but beyond that just about everything else is new.
+
+    The key to this method is the idea that a floated container will always be the same height as its floated content. By floating all of our columns inside all of the floated containers we ensure our container divs will always be equal in height to the tallest column.
+
+    1
+    2
+    3
+    4
+    5
+    6
+    7
+    8
+    9
+    10
+    11
+    12
+    13
+    14
+    15
+    16
+    17
+    18
+    19
+    20
+    21
+    22
+    23
+    24
+    25
+    26
+    #container-outer {
+    float:left;
+    overflow: hidden;
+    background: #eee;
+    }
+
+    #container-inner {
+
+    background: #555;
+
+    right:75%;
+    }
+
+    #sidebar {
+    float: left;
+    width: 25%;
+    position: relative;
+    left: 75%;
+    }
+
+    #content {
+    float: left;
+    width: 75%;
+    position: relative;
+    left: 75%
+    }
+    The first step here is to float both the columns and the containers. I have everything floated to the left, but the direction isn’t important. Use whatever direction you need for your layout.
+
+    The next step is setting backgrounds on the 2 container divs. Here I’ve set the background on the inner container to be the one we want on the sidebar and the outer container background to what we want on the main content.
+
+    If we stop here we’ll only see the background on the inner div since it’s higher in the stacking order than the outer div.
+
+    We need to a little css positioning to shift the inner div so it shows only where we want the sidebar to display. That will allow the background on the outer div to show through behind where we want the content column to display.
+
+    1
+    2
+    3
+    4
+    #container-inner {
+    position: relative;
+    right: 75%;
+    }
+    We position the inner column and then set it’s right value to be 75% which is the same as the width of our content column.
+
+    Our backgrounds are now in place, however the content of both columns has also shifted 75% to the left. We need to shift it back into place.
+
+    1
+    2
+    3
+    4
+    5
+    6
+    7
+    8
+    9
+    #sidebar {
+    position: relative;
+    left:75%
+    }
+
+    #content {
+    position: relative;
+    left:75%
+    }
+    Once again we use relative positioning and because the content in both columns has been shifted 75% to the left we need to shift it back 75% to the right. We do that by setting the left value to 75%.
+
+    Now everything is back where it should be.
+
+    Pros:
+
+    Works regardless of which column is longer or shorter
+    Works with any kind of layout (fixed, fluid, elastic, etc)
+    Can handle as many columns as you want
+    Cons:
+
+    A little more difficult to understand at first
+    Requires additional and non-semantic container divs
+    Overall this is the most foolproof method and the one guaranteed to work for any use case. I’d encourage you to play around with this one to really understand it and read through Matthew’s article a few times.
+
+    Matthew’s article walks through a 3 column layout and he has demos for both 4 and 5 columns as well. I chose to present a 2 column layout in the hopes it would make the concepts easier to understand.
+
+    Additional Resources
+    By no means are these the only methods for creating equal height columns. Chris Coyier shared a several other methods on CSS Tricks a few months back that you may prefer over those presented here.
+
+    Fluid Width Equal Height Columns
+    There are also plenty of other methods you can find with a little searching. Between this article and Chris’ I think most of the more common methods are covered.
+
+    Two standing columns at the ruins of a Roman theatre in Arles
+
+    Summary
+    Equal height columns are a desirable design trait, but they haven’t always been easy to create with css layouts. Ideally we’d be able to use something like height: 100% and be done with it, but for now we can use any of the methods mentioned above.
+
+    Faux columns are easy to set up, but they require an extra http request for the image and any change to the layout requires a new image.
+
+    Pseudo columns are even easier, but have a limited use case where the relative heights of both columns are known and consistent across pages.
+
+    Borders and negative margins are relatively easy to work with, require no foreknowledge of column heights and better adapt to multiple columns. They require one column be fixed width.
+
+    Offset columns and containers work across the most cases. They require no foreknowledge of column heights and can work with as many columns as you want. The method is a little more complex than the other methods.
+
+    In time I expect a much simpler standard css solution, but until then these 4 methods should suffice for your project.
+
+    Do you design equal height css column layouts often? What method for creating the columns to use when you do?
+
+    Download a free sample from my book, Design Fundamentals.
+
+    84 comments
+    Emil says:
+    June 9, 2011 at 8:14 am
+    You can recreate your image with css3
+
+    background-image: -webkit-gradient(
+    linear,
+    left bottom,
+    right bottom,
+    color-stop(0.25, rgb(255,21,0)),
+    color-stop(0.25, rgb(0,255,255))
+    );
+
+    But since some of your solutions had a con like “Not IE() compatible” I can understand that this is not an option
+
+    Reply
+    Steven Bradley says:
+    June 9, 2011 at 10:50 am
+    Thanks Emil,
+
+    Yep. The lack of IE support makes it hard to recommend css gradients as a standard option. You can certainly use them of course as long as you’re aware of the limitation and provide for a fall back in IE.
+
+    And again these are by no means the only methods for creating columns of equal height. Just 4 I think work well.
+
+    Reply
+    David says:
+    June 9, 2011 at 1:14 pm
+    In the Pseudo and Offset methods, the sidebar is clipped when the browser width is reduced.
+
+    Reply
+    Steven Bradley says:
+    June 9, 2011 at 1:54 pm
+    Thanks David. I do see that. It’s because I set both of those methods up as flexible layouts and then filled the columns with non-flexible content. The code is wrapped in pre tags, which doesn’t let what’s inside flow.
+
+    My bad with the demo, but the methods still work as they should.
+
+    Reply
+    David Runion says:
+    June 9, 2011 at 1:26 pm
+    I use jQuery. No javascript? Fine, things will still work.
+
+    jQuery(function($) {
+
+    var sh = $(“#sidebar”).height();
+    var ch = $(“#content”).height();
+    var diff = sh – ch;
+
+    if(diff > 0) {
+    // sidebar is taller
+    $(“#content”).height(sh);
+    else {
+    // content is taller or heights are equal
+    $(“#sidebar”).height(ch);
+    }
+
+    });
+
+    Reply
+    Steven Bradley says:
+    June 9, 2011 at 1:58 pm
+    Thanks David. JavaScript is another method used for equal height columns. I’m of the opinion that JavaScript is generally not the best solution for layout though I do know people use it.
+
+    As long as the layout still works without JavaScript I guess there’s no problem, but I prefer to stick with html and css for layout.
+
+    Reply
+    azam says:
+    December 9, 2015 at 11:02 pm
+    Thank sir for this code, very helpful
+
+    Reply
+    Greg Babula says:
+    June 9, 2011 at 5:50 pm
+    You can also use a padding/margin “hack”
+
+    I setup an example here
+    http://g5framework.com/equal-columns.php
+
+    Reply
+    Steven Bradley says:
+    June 9, 2011 at 6:24 pm
+    Interesting Greg. I take it the negative bottom margin on the floated columns combined with the overflow hidden on the container is what makes the column equal height.
+
+    I’ve never seen that before. Do you have a post explaining how it all works?
+
+    Reply
+    TLGreg says:
+    August 4, 2012 at 8:10 am
+    Basicly he makes the columns really tall (padding) and crops it with a wrapper (overflow:hidden), then pull any content after it back (minus margin).
+    Has to be aware that content after it cannot be inside the wrapper. So for example a footer should be outside the wrapper, otherwise its background would be stacked below the floated elements. This means doubled container in many cased.
+    Here is another example with this technique.
+    http://jsbin.com/etowix
+
+    Reply
+    Steven Bradley says:
+    August 6, 2012 at 10:55 am
+    Thanks for the additional info. Interesting technique and it certainly looks like it works. I appreciate you bringing it to my attention.
+
+    Reply
+    Rado says:
+    June 9, 2011 at 9:19 pm
+    Just a little bit modern way:
+
+    #container {
+    display: table;
+    }
+    #content {
+    display: table-cell;
+    vertical-align: top;
+    }
+    #sidebar {
+    display: table-cell;
+    vertical-align: top;
+    }
+
+    Reply
+    Steven Bradley says:
+    June 10, 2011 at 12:40 pm
+    Thanks Rado. I haven’t played enough with css tables to know how well they work. I think browser support for them is pretty good though so I imagine this is another solution to the problem.
+
+    Reply
+    George Mihailov says:
+    May 23, 2012 at 7:45 am
+    Works great! (IE8+)
+
+    Reply
+    Nz says:
+    August 17, 2014 at 12:43 pm
+    Yeah, this works great in modern browsers. It’s the easiest and best way. Are there any cons to this method ?
+
+    Reply
+    Sofian says:
+    April 6, 2015 at 6:07 am
+    I loved this method, but then I found out that for fluid layout it doesn’t work in Firefox, because the max-width on images is not respected, they drop out of their container. I tried to figure out until i reached the point of a FF bug. Try if you can set it and let us know if anyone gets this version to work perfect. I’d love to use it until flexbox arrived fully.
+
+    Reply
+    Steven Bradley says:
+    April 6, 2015 at 5:02 pm
+    That’s strange. I wouldn’t think Firefox would have an issue with max-width.
+
+    I think it’s safe to use flexbox now. The latest versions of I think all browsers support it. You can just about support most everything in use if you’re willing to use older versions of the syntax and vendor prefixes too.
+
+    Reply
+    Yogendra says:
+    September 22, 2016 at 1:23 pm
+    vertical-align: top;
+
+    This is crucial in table cell. Without it, IE takes shorter div to the bottom of table. You saved my day,Thank you !!!
+
+    kc rajput says:
+    June 10, 2011 at 2:30 am
+    Hey Steven.. i was just facing this problem and your all method are useful for me. Because i am using 2 column site :P.
+    Last one is very nice..
+    thanks a lot..
+
+    Reply
+    Steven Bradley says:
+    June 10, 2011 at 12:41 pm
+    Glad I could help kc. The offset columns and containers is definitely the most flexible of the methods I’ve presented. It’s not too difficult to understand, though I did have to read through it a couple of times to really understand how and why it was working.
+
+    Reply
+    Rob says:
+    June 24, 2011 at 10:50 pm
+    Awesome tutorial; thanks for sharing! 🙂 I’ve always used the “Faux Column” work-around for equal column heights, but it’s great to see other methods in action!
+
+    I remember when I first started with CSS, I ran into this issue of “un-equal” divs and didn’t know what to do.
+
+    Thanks,
+    Rob
+
+    Reply
+    Steven Bradley says:
+    June 26, 2011 at 9:16 pm
+    Thanks Rob. Faux Columns is a good method, probably the most popular. I generally don’t use it, but it’s more my personal thing about not using an image for a solid blog of color. I’m always looking for way to translate an image into code.
+
+    I came up with my pseudo method when I had to deal with unequal columns. I know it only works for limited cases, but I think those limited cases come up a lot.
+
+    Of course if we use the same background colors behind all columns the issue goes away. Maybe that’s the easiest method.
+
+    Reply
+    Mitch says:
+    September 30, 2011 at 3:10 pm
+    OK, these are all interesting. But what about equal columns, sidebar and content with the same background color and borders turned on? The negative padding-bottom/margin-bottom trick won’t work since hiding overflow-y also has the consequence of hiding the title that is been negatively margined above the div for style purposes.
+
+    So how do people get equal height divs when we are doing borders not backgrounds?
+
+    Reply
+    Steven Bradley says:
+    October 2, 2011 at 11:53 pm
+    These methods wouldn’t work for that.
+
+    My first thought is to ask if you really need everything to have borders. Probably not. The point of borders is to enclose and separate areas on the page. Different colored backgrounds do the same. So does space. You could present the information itself differently to separate it as well.
+
+    There are lots of different ways to solve the same problem.
+
+    Reply
+    Cyberster says:
+    December 31, 2011 at 8:03 am
+    I’d like to do it with jQuery
+
+    // setting layout columns same height
+    $(document).ready(function(){
+    if($(‘#content’).height() > $(‘#sidebar’).height())	{
+    $(‘#sidebar’).height($(‘#content’).height());
+    } else {
+    $(‘#content’).height($(‘#sidebar’).height());
+    }
+    });
+
+    Reply
+    Steven Bradley says:
+    January 2, 2012 at 12:54 am
+    Certainly another way to accomplish the same goal. Thanks for the code.
+
+    I generally don’t like using a Javascript solution for what I consider a structural problem. If I can find an html/css solution that’s what I’ll usually use.
+
+    Reply
+    Arpan Das (Cyberster) says:
+    October 1, 2013 at 4:30 am
+    Yes, I also prefer not to use JavaScript if it can be done with HTML/CSS. But JS has dynamic event calls – that HTML/CSS does not have.
+
+    For those case (like update content via AJAX), its more dynamic way.
+
+    Reply
+    Steven Bradley says:
+    October 1, 2013 at 4:26 pm
+    I think that might be the longest time gap between replies here. 🙂
+
+    Updating a comment is different. I have no problem using js for dynamic things like that. It’s more the basic structure where I prefer to stay away from js, though it depends on the situation.
+
+    Reply
+    Arpan Das (Cyberster) says:
+    October 2, 2013 at 12:01 am
+    Yep! :p
+
+    and yes, it’s really depends!
+
+    Erik says:
+    February 18, 2012 at 1:17 pm
+    Nice collection of CSS tricks. Solved my problems!
+
+    Reply
+    Adam says:
+    March 28, 2012 at 1:06 pm
+    Thank you, I have been trying to get the columns to be equal for a while and you are the first one that helped me get it right.
+
+    Reply
+    Steven Bradley says:
+    March 29, 2012 at 11:20 pm
+    I’m glad I could help. I had to refer to this post myself today to remind me how the last method worked.
+
+    Reply
+    Will Fastie says:
+    April 20, 2012 at 11:57 am
+    Matthew James Taylor’s solution is absolutely brilliant and I’ve been using it exclusively for over a year. One reason it seems so complicated is the way he addresses the IE box model error (by creating faux padding).
+
+    In your exposition of his method, you simplified. It makes the method easier to grasp but it may lead readers down a bad path. If padding is applied to the containers, formatting problems may ensue. If MJT’s faux padding is used to avoid the problems, the column width math gets very tedious.
+
+    To deal with this, I use MJT’s method just as you as show it but ONLY for the structure of the columns (and their backgrounds). To handle content, I create interior containers in each column. Those containers can be formatted as desired, including margins or padding to provide separation. The result is simpler math, simpler changes if the widths need to change, easier formatting of column content, and the ability to deal with box model issues if they come up.
+
+    Thanks for the excellent summary. It’s an excellent presentation.
+
+    Reply
+    Steven Bradley says:
+    April 25, 2012 at 10:59 am
+    His solution is great.
+
+    Thanks for the extra info about the faux padding. I hadn’t realized my simplification could lead to problems, though now that you mention it I did have some issues using this method on a site not too long ago and the padding was most likely the culprit. I forget how I solved things. I’ll have to check and also double check Matthew’s post.
+
+    So are you then creating a 3rd level container for the content?
+
+    Reply
+    Mohammad says:
+    May 2, 2012 at 1:04 pm
+    What if: you would like the one (e.i. in this context named ‘sidebar’) not to show at all if it is empty? Then none of these solution will works,
+
+    Reply
+    Steven Bradley says:
+    May 2, 2012 at 1:24 pm
+    These solutions probably wouldn’t work in that case, but why should they? They’re a solution to a different problem.
+
+    In your case I’d guess you need to use something like Javascript to determine if there’s content in the sidebar and based on what’s returned offer different layouts. However before doing that I’d ask myself if there could be times when a sidebar will have no content is a sidebar really the best design solution. Would it be better to present the content in some other location?
+
+    Reply
+    Mohammad says:
+    May 2, 2012 at 1:36 pm
+    Hi Steven,
+    you need to abstract from the ‘content/sidebar’ example you have used as a example here – the essential part is how to “Creating Equal Height Columns In CSS”. In this perspective, an empty div will normally hide if it is empty – a feature that is unavailable with any of these equal-height solutions. I actually make use of this empty-div feature and need two columns to be equal height
+
+    Reply
+    Steven Bradley says:
+    May 3, 2012 at 9:26 am
+    Again these 4 methods aren’t meant to be the solution to every problem. Could you send me a link to a page where you have the empty column? If I can see your code maybe I can help.
+
+    I’m curious though why you don’t think any of these solutions could work. None really require that there be any content in the sidebar.
+
+    Reply
+    Darcy says:
+    June 26, 2012 at 4:51 pm
+    Hey there. I’m a big fan of what you call Pseudo columns too… You don’t actually need to know which column is longer, since the main container has an overflow of hidden, adding a massive amount of padding to the bottom of each inner div and then an equivalent negative margin gets the background colours to stretch to fill the height.
+
+    There is of course an extreme edge case where the difference of the height of the columns exceeds the arbitrary values you choose for the margin/padding but for most real world uses it’s definitely the way to go as it’s the lightest weight option.
+
+    #container {
+    background: #555; /* NOT actually needed */
+    overflow: hidden
+    }
+
+    .lt-ie8 #container {display:inline-block;} /* Takes advantage of the improper implementation of inline block in ie7 and lower */
+
+    #content, #sidebar {
+    padding-bottom:32111px;
+    margin-bottom:-32111px;
+    }
+    #content {
+    float:left;
+    width:75%;
+    background:#eee;
+    }
+    #sidebar {
+    float:left;
+    width:25%;
+    background:#555;
+    }
+
+    Reply
+    Steven Bradley says:
+    July 4, 2012 at 10:19 am
+    Thanks Darcy. I’m with you. I know pseudo columns aren’t a perfect solution, but in real world cases they often work well. I hadn’t realized about not needing to know in advance the longer column, but not that I think about it, I have done similar with the padding and negative margin.
+
+    I appreciate the addition to the method.
+
+    Reply
+    Burly says:
+    July 29, 2012 at 6:44 pm
+    I am currently in a Web development class and am having problems getting my right-side navigation frame to span the entire height of the browser window. The code is as follows:
+
+    HTML and JavaScript
+
+    What do I need to do in order to make the navigation bar span the entire height past the title frame?
+
+    Reply
+    Steven Bradley says:
+    July 29, 2012 at 9:55 pm
+    Sorry, but your code couldn’t come through in the comments. Is the page in question online? If so you can post a link to it. If not you can email me the code and I’ll try to take a look.
+
+    Reply
+    Peter Gilkes says:
+    September 17, 2012 at 11:17 pm
+    This is an excellent article, and I used the suggestions here to start converting the websites I have built to use CSS instead of traditional tables.
+
+    I have a general dislike of websites where the height of a particular column is much greater than the height of the others – I think it shows poor foresight because of the ’empty spaces’ it leaves in the other columns.
+
+    To avoid this I actually set the height of each column to the same value, i.e. a ‘sensible’ value depending on the use for the ‘panel’. I then set overflow to auto, which will automatically add a scroll bar to the right if the content is greater than the height set.
+
+    I just wondered what you thought of this as an idea?
+
+    Regards Peter
+
+    Reply
+    Steven Bradley says:
+    September 18, 2012 at 11:17 pm
+    Thanks Peter. I’m not sure if different column heights is necessarily poorly planned. It depends on the overall design. Right now here this column is much larger than the column on the left as far as the content inside, but it was done on purpose. I wanted the empty space to allow room for the column with the main text. Space can be a good thing.
+
+    If the backgrounds are off I do agree. That’s often poor planning.
+
+    Setting overflow and allowing for a scrollbar can work. I’ve seen sites pull it off well. I’m generally not a big fan of having extra scrollbars though. I think they can sometimes be confusing or make it difficult to scroll the part of the page you want to scroll. It really depends how it’s done though. I have seen it work well.
+
+    Reply
+    David says:
+    January 4, 2013 at 2:06 am
+    Really enjoyed this post. Ive been struggling with how to tackle faux columns but no longer, thank you for posting this 🙂
+
+    Reply
+    Steven Bradley says:
+    January 5, 2013 at 10:35 am
+    Glad I could help David.
+
+    Reply
+    Andrew Aponte says:
+    January 10, 2013 at 9:17 am
+    Hi Steven,
+
+    I tried your last solution, which works great… However, if you add padding the layout breaks. Plus I have a thing against non-semantic HTML.
+
+    I -think- I found a simple solution that will allow padding, doesn’t require any extra non-semantic html (e.g. – an “inner” container div). I’ve tested it in all browsers (even IE8) and it seems to work perfectly. Let me know what you think? :
+
+    #container {
+    overflow: hidden;
+    position: relative;
+    }
+
+    #sidebar {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 25%;
+    -moz-box-sizing:border-box;
+    -webkit-box-sizing:border-box;
+    box-sizing:border-box;
+    background: #ccc; /* Aesthetic, not required */
+    padding: 10px; /* Aesthetic, not required */
+    }
+
+    #content {
+    float: right;
+    width: 75%;
+    -moz-box-sizing:border-box;
+    -webkit-box-sizing:border-box;
+    box-sizing:border-box;
+    background: #eee; /* Aesthetic, not required */
+    padding: 10px; /* Aesthetic, not required */
+    }
+
+    Reply
+    Steven Bradley says:
+    January 10, 2013 at 11:54 am
+    Thanks Andrew. I haven’t had a chance to test your code yet, but I will. Do you have a working example online? If so feel free to post a link to it or just email it to me if you prefer.
+
+    As soon as I get a chance I’ll take a deeper look.
+
+    Reply
+    Andrew Aponte says:
+    January 10, 2013 at 2:01 pm
+    Nevermind, it’s not a perfect solution. It won’t work if the content of #sidebar is longer than the content of #content.
+
+    So I guess your last solution is probably the best one 🙂 However IMO I would add box-sizing: border-box to the child divs, this way padding can be added without breaking the layout.
+
+    Reply
+    Steven Bradley says:
+    January 10, 2013 at 3:11 pm
+    No worries. It still works for some cases. Hopefully browsers will adopt flexbox sooner rather than later and we’ll have an easy solution to several problems. 🙂
+
+    Reply
+    JoshuaD says:
+    January 16, 2013 at 10:52 am
+    I just wanted to thank you for this great article. I’m just starting to work more with webpages and getting the columns to match up like this has been a real headache. This article solved my problem, thanks!
+
+    Reply
+    Steven Bradley says:
+    January 18, 2013 at 1:31 pm
+    Glad I could help Josh. This isn’t one of the easier things to pull off in css, but as you can see it is possible.
+
+    Reply
+    James says:
+    January 24, 2013 at 4:49 am
+    Thanks for the post!
+
+    I just fixed this issue on my site by simply adding min-height: 1584px; to the two sidebar divs so their height would match the height of the main div.
+
+    Reply
+    Steven Bradley says:
+    January 25, 2013 at 10:58 am
+    Glad I could help James. Keep in mind your solution will work well until such a time when the main div is less than 1584px. If that happens your sidebars will be 1584px, which may or may not be what you want.
+
+    Reply
+    Steven Bradley says:
+    January 27, 2013 at 9:23 pm
+    What’s the assignment?
+
+    Can you just give each column a height and set them equal? Or do the columns need to adjust in size to different content that might be placed in them?
+
+    Reply
+    Steven Bradley says:
+    January 27, 2013 at 9:40 pm
+    Feel free to email me the code if you want. The comment form strips out the html. You have to use &lt ; and &gt ; (without the space) for the opening and closing angle brackets if you want to post html.
+
+    You can email me through my contact page though and I’ll take a look.
+
+    Reply
+    Olen says:
+    May 15, 2013 at 5:30 am
+    I think this is like using a boulder to drive a nail. The reality is that this is a real deficiency in css…the inability of css to have a simple built-in capacity for one column to “know” what the other is doing.
+
+    Reply
+    Steven Bradley says:
+    May 17, 2013 at 8:52 am
+    It would be nice if this was easier in css and it will be once we’re using flexbox regularly. I don’t think it’s equivalent to driving a nail with a boulder, though.
+
+    CSS doesn’t have the capability to do everything with a single line of code. I think this is just one of those things we assume should be easy to implement in css, but isn’t as easy as we think.
+
+    If you don’t mind a poylfill for older versions of IE and you don’t need to support Opera Mini, you can use flexbox now, which does make equal height columns a simple thing.
+
+    Reply
+    Matthias Pabst says:
+    August 19, 2013 at 9:15 am
+    The last method works great. Thanks for sharing this.
+
+    Reply
+    Steven Bradley says:
+    August 19, 2013 at 11:36 pm
+    I’m glad I could help and glad you were able to find a method that worked for what you wanted.
+
+    Reply
+    Diéssica Gurskas says:
+    September 6, 2013 at 1:46 am
+    “Requires additional and non-semantic container divs”
+    Nope. Divs are not semantic! 😛
+
+    Reply
+    Steven Bradley says:
+    September 6, 2013 at 8:27 am
+    Which is why I said non-semantic.
+
+    Reply
+    Diéssica Gurskas says:
+    September 19, 2013 at 9:13 pm
+    Div isn’t semantic and never will, even out of this context. So, it’s redundant.
+    Anyway, it doesn’t matter. Great article! 🙂
+
+    Reply
+    Steven Bradley says:
+    September 23, 2013 at 12:34 pm
+    Good point. I completely missed what you were saying in your previous comment. Guess I’m a little dense at times, particularly early in the morning before I’ve had some coffee. 🙂
+
+    Reply
+    yasmina says:
+    November 9, 2013 at 9:44 am
+    Thaaaaaaaaaaaaaaanks a lot, I loved the forth method, and it works really good.
+
+    Reply
+    Nemes Ioan Sorin says:
+    June 21, 2014 at 8:13 am
+    this is for IE8+
+    (and all otherbrowsers)
+    note the meta tag (in comments) which must be placed on the HEADER of the page
+
+    http://codepen.io/sorinnn/pen/gLJoB
+
+    Reply
+    Steven Bradley says:
+    June 30, 2014 at 12:05 pm
+    Thanks. I see the meta tag. Here it is for anyone reading this comment
+
+    <meta http-equiv=”X-UA-Compatible” content=”IE=edge” />
+
+    I’ll have to look more into the tag to better understand what it does. Thanks for pointing me to it.
+
+    Reply
+    Dan Howard says:
+    August 13, 2014 at 9:15 am
+    How do we make things 100% height of the screen?
+
+    Reply
+    Steven Bradley says:
+    August 18, 2014 at 12:50 pm
+    It’s really a different topic deserving it’s own article. I’d probably use flexbox. I never cared much for the techniques people used for 100% height and never thought they worked all that well.
+
+    Flexbox might not be in common use yet, but it’ll solve this problem and is close enough to being ready for production that we can realistically use it now.
+
+    Reply
+    Nemes Ioan Sorin says:
+    August 19, 2014 at 3:49 am
+    today the major stap back again flexbox is IE9 usage
+
+    later a smaller step back will be ie10 which has a basic support for flexbox
+
+    ..we allways need to wait years for the good things to come in the real(internet) life just because of $MS … hmm …
+
+    Reply
+    Steven Bradley says:
+    August 19, 2014 at 10:35 am
+    True. Older versions of IE are often what holds us up. I think flexbox can be made to work though. If you don’t mind using older versions of the syntax, you can use Flexie.js as a polyfill for IE6-9.
+
+    You’d still have to use vendor prefixes too, but that only leaves Opera Mini as the browser flexbox won’t work in. That’s not a lot to wait on.
+
+    With IE in general, once people are past IE9 things should get better. If I’m not mistaken starting with IE10 IE will autoupdate. I could be mistaken about the autoupdate, though.
+
+    I think flexbox is very close to being production ready. Some sites already use it. Once it’s used in production, I expect it’ll become the dominant method for building websites.
+
+    Reply
+    Nemes Ioan Sorin says:
+    August 20, 2014 at 4:42 am
+    Surprisingly or not, today, we(the rest of the world) and IE-centric developers, we all want (and hope in) the same set of standards.
+
+    The fact that IE devs start to accept / adopt other devel groups initiatives and standards is good, they finally discovered they are not alone on the planet – and the fact that this(web-development) game is at global scale.
+    Flexbox will be the painless method of any-to-any-layout for a long period of time (I hope ;)).
+
+    Until then, media queries – table-cells and where nothing is working,… jQuery for dynamic re-layouting.
+
+    Reply
+    Steven Bradley says:
+    August 22, 2014 at 5:14 pm
+    I hear you. Again I do think the situation has gotten a lot better with IE. I remember having to add all sorts of workarounds for IE6 or eve 5.5.
+
+    I’m glad most browsers are upgrading quicker than they used to. It’s nice knowing pretty much everyone who uses a browser is on the latest version. We’re not quite there yet with all of them, but some are on board.
+
+    I’m ready for flexbox. I probably will use it the next time I redesign this site. Like you said, until then we’ll just continue as usual.
+
+    Reply
+    TLGreg says:
+    August 22, 2014 at 5:43 pm
+    Microsoft too switches to silent updates with IE, which can be a good step forward. IE less then 9 should be dead after that, and IE9 too soon. IE10 unfortunately most likely will stick around for a long time.
+
+    Reply
+    Steven Bradley says:
+    August 26, 2014 at 12:38 pm
+    I thought they started auto updates. I’m glad as I’m sure are most web designers.
+
+    Is IE10 really that bad? I think IE has gotten a lot better as far as rendering standard compliant code over the last few versions. There will always be some things we want to do that we can’t yet, but once all browsers are auto updating things will definitely be better.
+
+    Reply
+    Fisherman says:
+    August 30, 2014 at 2:38 pm
+    Thanks! The last method work the best for me.
+
+    Aloha Snackbar! LOL
+
+    Reply
+    Robert says:
+    February 9, 2015 at 2:02 pm
+    Steven,
+    Thanks for taking the time to write this article. Your simple explanation and analysis of the various methods is extremely helpful to new web developers.
+    Robert
+
+    Reply
+    Steven Bradley says:
+    February 9, 2015 at 4:10 pm
+    Thanks Robert. I’m glad I was able to help.
+
+    Reply
+    Chris Power says:
+    March 27, 2015 at 9:16 am
+    Thanks. Using the Pseudo Columns version. Very easy to use. Can easily live with “imperfections”
+
+    Reply
+    Steven Bradley says:
+    March 28, 2015 at 6:57 pm
+    That is an easy method as long as you know one of the columns will always be larger than the others.
+
+    Now that is’a few years later, I’d like choose flexbox over any of the methods here if I want equal height columns.
+
+    Reply
+    Vincy says:
+    August 4, 2015 at 5:31 am
+    Thanks for this excellent article.
+
+    Is it safer now to go the flexbox way for a new website I am about to design?
+
+    Do I still need to worry about older versions of IE?
+
+    Reply
+    Steven Bradley says:
+    August 4, 2015 at 2:39 pm
+    You can definitely use flexbox now, though I don’t think that means you shouldn’t consider older versions of IE. It depends a lot on the specific site. Will the audience for this site use older versions of IE?
+
+    I’m not sure I’d use flexbox for the entire layout of a site, though I think you could. People are using flexbox now on live sites. It’s more likely used for the layout of components (navigation, forms) than for the entire site/page layout, though I think you could use it for the latter.
+
+    I have a book coming relatively soon about flexbox. It probably won’t help for a site you’re about to design now, but perhaps the site after that.
+
+    Reply
+    TheMalgot says:
+    January 7, 2016 at 3:02 am
+    All of these solutions feel more like hacks and nothing that CSS intented you to do this way. There must be better solutions.
+
+    Reply
+    Steven Bradley says:
+    January 7, 2016 at 8:06 am
+    They are hacks and better solutions are coming. Flexbox, for example, makes equal height columns simple. There are still a few browser versions in use that don’t support flexbox, but not many. CSS Grids have less support, but they also provide equal height columns easily. Until they’re used more frequently though, we still have the methods I described in this post.
+
+    Reply
+    Leave a Reply
+    Your email address will not be published. Required fields are marked *
+
+    Comment
+
+
+    Name *
+
+
+    Email *
+
+
+    Website
+
+
+    Post Comment
+    Recent Entries from the Notebook
+    My Goals for 2018—Let’s Get Those Priorities In Order
+    2017 Goals Review—Looking Back On The Year That Was
+    How You Can Train Yourself To Think Like A Designer
+    Design Concepts—How To Use The Principles Of Design To Communicate Your Concept
+    Happy Thanksgiving From An Overcast Day New York City
+    Recommended
+    CSS Layouts
+    Design For Non-Designers
+    HTML5 Basics
+    My Blogging Process
+    Redesign
+    Responsive Design
+    SVG Text
+    The 7 Components of Design
+    The Elements of Design
+    Visual Perception and Design
+    Subscribe to the Notebook
+    RSS Subscribe to TheVanBlog
+    Get free email updates
+
+    Enter you email
+    Subscribe
+    Connect with me
+    Copyright © 2005–2018 Vanseo Design
+            </p>
+        </div>
+
+    </div>
+</div>
+
+</body>
+</html>

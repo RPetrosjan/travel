@@ -1,0 +1,53 @@
+<html lang="en" class=""><head>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet prefetch" href="https://cdn.rawgit.com/michalsnik/aos/2.0.4/dist/aos.css">
+    <style class="cp-pen-styles">* {
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+    }
+
+    .item {
+        width: 200px;
+        height: 200px;
+        margin: 50px;
+        padding-top: 75px;
+        background: #ccc;
+        text-align: center;
+        color: #FFF;
+        font-size: 3em;
+        display: inline-block;
+        float: left;
+    }
+    </style></head>
+<body>
+<div class="item aos-init aos-animate" data-aos="slide-up">1</div>
+<div class="item aos-init aos-animate" data-aos="slide-up">2</div>
+<div class="item aos-init aos-animate" data-aos="slide-up">3</div>
+<div class="item aos-init aos-animate" data-aos="slide-up">4</div>
+<div class="item aos-init aos-animate" data-aos="slide-up">5</div>
+<div class="item aos-init aos-animate" data-aos="slide-up">6</div>
+<div class="item aos-init aos-animate" data-aos="slide-up">7</div>
+<div class="item aos-init aos-animate" data-aos="slide-up">8</div>
+<div class="item aos-init aos-animate" data-aos="slide-up">9</div>
+<div class="item aos-init aos-animate" data-aos="slide-up">10</div>
+<div class="item aos-init aos-animate" data-aos="slide-up">11</div>
+
+<script src="https://cdn.rawgit.com/michalsnik/aos/2.0.4/dist/aos.js"></script>
+<script>AOS.init({
+    duration: 1200,
+})
+
+$(".item").each(function () {
+
+    random = 15+Math.random()*25;
+    $(this). css("margin-top",random+"px");
+})
+    
+
+
+
+</script>
+
+
+</body></html>
