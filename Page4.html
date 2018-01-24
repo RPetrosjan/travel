@@ -76,11 +76,12 @@
         }
         .content .showdiv>.lineinfobox{
             display: inline-block;
-
+            width: 450px;
         }
         .infodivbox>div{
             padding: 15px;
         }
+
         .infodivbox>div>div{
             width: 100%;
             height: 350px;
@@ -91,9 +92,45 @@
             font-size: 20px;
             text-align: left;
         }
-        .infodivbox>div>div>img
+        .infodivbox>div>div>div.imagediv{
+            float: left;
+            height: 100%;
+            width: 150px;
+            overflow: hidden;
+        }
+
+        .infodivbox>div>div>div.infopreisdivbox{
+            background-color: #5BAEC6;
+            float: right;
+            height: 100%;
+            width: 2px
+        }
+        .infodivbox>div>div>div.titlediv{
+            padding-top: 37px;
+            text-align: center;
+        }
+        .infodivbox>div>div>div.titlediv>h2{
+            margin: 0px;
+            display: inline-block;
+            width: 203px;
+            white-space: nowrap;
+            overflow: hidden;
+        }
+        .infodivbox>div>div span.infopreisspan{
+            background-color: #5BAEC6;
+            float: right;
+            border-radius: 7px 0px 0px 8px;
+            color: white;
+            font-family: tahoma;
+            font-size: 12px;
+            font-weight: bold;
+            padding: 5px 8px;
+            margin-top: 4px;
+        }
+
+        .infodivbox>div>div>div.imagediv>img
         {
-            width: 100%;
+            height: 100%;
         }
 
 
@@ -136,8 +173,14 @@
                 <div>
 
                     <div>
-                        <img src="http://armenia-travel.am/img/tour/1.jpg">
-                        Yerevan
+
+                        <div class="imagediv">
+                            <img src="http://armenia-travel.am/img/tour/1.jpg">
+                        </div>
+                        <div class="infopreisdivbox"></div>
+                        <div class="titlediv"><h2>Yerevan</h2>
+                            <span class="infopreisspan">1200 &euro;</span>
+                        </div>
                     </div>
 
                 </div>
@@ -145,63 +188,107 @@
             <div class="infodivbox">
                 <div>
                     <div>
-                        <img src="http://armenia-travel.am/img/tour/5.jpg">
-                        Etchmiadzin
+                        <div class="imagediv">
+                             <img src="http://armenia-travel.am/img/tour/5.jpg">
+                        </div>
+                        <div class="infopreisdivbox"></div>
+                        <div class="titlediv"><h2>Etchmiadzin</h2>
+                            <span class="infopreisspan">700 &euro;</span>
+                        </div>
+
                     </div>
                 </div>
             </div>
             <div class="infodivbox">
                 <div>
                     <div>
-                        <img src="http://armenia-travel.am/img/tour/2.jpg">
-                        Garni-Geghard
+                        <div class="imagediv">
+                             <img src="http://armenia-travel.am/img/tour/2.jpg">
+                        </div>
+                        <div class="infopreisdivbox"></div>
+                        <div class="titlediv"><h2>Garni-Geghard</h2>
+                            <span class="infopreisspan">850 &euro;</span>
+                        </div>
+
                     </div>
                 </div>
             </div>
             <div class="infodivbox">
                 <div>
                     <div>
+                        <div class="imagediv">
                         <img src="http://armenia-travel.am/img/tour/6.jpg">
-                        Khor-Virap - Areni - Noravank
+                        </div>
+                        <div class="infopreisdivbox"></div>
+                        <div class="titlediv"><h2>Khor-Virap - Areni - Noravank</h2>
+                            <span class="infopreisspan">1100 &euro;</span>
+                        </div>
+
                     </div>
                 </div>
             </div>
             <div class="infodivbox">
                 <div>
                     <div>
+                        <div class="imagediv">
                         <img src="http://armenia-travel.am/img/tour/3.jpg">
-                        Tatev
+                        </div>
+                        <div class="infopreisdivbox"></div>
+                        <div class="titlediv"><h2>Tatev</h2>
+                            <span class="infopreisspan"> 540 &euro;</span>
+                        </div>
+
                     </div>
                 </div>
             </div>
             <div class="infodivbox">
                 <div>
                     <div>
+                        <div class="imagediv">
                         <img src="http://armenia-travel.am/img/tour/35.jpg">
-                        Jermuk
+                        </div>
+                        <div class="infopreisdivbox"></div>
+                        <div class="titlediv"><h2>Jermuk</h2>
+                            <span class="infopreisspan"> 1240 &euro;</span>
+                        </div>
+
                     </div>
                 </div>
             </div>
             <div class="infodivbox">
                 <div>
                     <div>
+                        <div class="imagediv">
                         <img src="http://armenia-travel.am/img/tour/4.jpg">
-                        Lake Sevan
+                        </div>
+                        <div class="infopreisdivbox"></div>
+                        <div class="titlediv"><h2> Lake Sevan</h2>
+                            <span class="infopreisspan"> 900 &euro;</span>
+                        </div>
+
                     </div>
                 </div>
             </div>
             <div class="infodivbox">
                 <div>
                     <div>
+                        <div class="imagediv">
                         <img src="http://armenia-travel.am/img/tour/37.jpg">
-                        Dilijan
+                        </div>
+                        <div class="infopreisdivbox"></div>
+                        <div class="titlediv"><h2>Dilijan</h2>
+                            <span class="infopreisspan"> 710 &euro;</span>
+                        </div>
+
                     </div>
                 </div>
             </div>
             <div class="infodivbox">
                 <div>
                     <div>
+                        <div class="imagediv">
                         <img src="http://armenia-travel.am/img/tour/31.jpg">
+                        </div>
                         Haghpat-Sanahin-Axtala
                     </div>
                 </div>
@@ -209,7 +296,9 @@
             <div class="infodivbox">
                 <div>
                     <div>
+                        <div class="imagediv">
                         <img src="http://armenia-travel.am/img/tour/8.jpg">
+                        </div>
                         Aragacotn
                     </div>
                 </div>
@@ -217,15 +306,22 @@
             <div class="infodivbox">
                 <div>
                     <div>
+                        <div class="imagediv">
                         <img src="http://armenia-travel.am/img/tour/36.jpg">
-                        Tsaghkadzor
+                        </div>
+                        <div class="infodivpage">
+                            Tsaghkadzor
+                        </div>
+
                     </div>
                 </div>
             </div>
             <div class="infodivbox">
                 <div>
                     <div>
+                        <div class="imagediv">
                         <img src="http://armenia-travel.am/img/tour/38.jpg">
+                        </div>
                         Enokavan
                     </div>
                 </div>
@@ -237,7 +333,7 @@
 <script src="https://cdn.rawgit.com/michalsnik/aos/2.0.4/dist/aos.js"></script>
 
 <script>
-    lineinitial = 300;
+    lineinitial =  450;
     swidth = $(".showdiv").width();
     nline = Math.floor(swidth/lineinitial);
     htmllinecode = '';
@@ -251,11 +347,12 @@
 
             random = 10+Math.random()*150;
 
+        random =    150;
             if(key==0){
-              ///  random = 0;
+                random = 0;
             }
 
-//            random = switcher * 50;
+
 
             $(this).css('margin-top',random+'px').addClass('aos-init aos-animate').attr('data-aos','slide-up');
             $('.lineinfobox:eq('+switcher+')').append(this);
