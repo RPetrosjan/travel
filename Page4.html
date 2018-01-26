@@ -39,6 +39,8 @@
         }
         .container>.menu>.myclass>ul{
             position: relative;
+            overflow: hidden;
+            width: 100%;
         }
         .container>.menu>.myclass:before{
             content: '';
@@ -132,6 +134,106 @@
         {
             height: 100%;
         }
+        .infotable{
+
+        }
+        .infotable>span{
+            display: inline-block;
+            font-size: 11px;
+            font-family: verdana;
+            margin-left: 7px;
+            border-right: 1px gray solid;
+            padding-right: 11px;
+            font-weight: bold;
+        }
+        .infotable>span:nth-of-type(1){
+            color: green;
+        }
+        .infotable>span:nth-of-type(2){
+            color: orange;
+        }
+        .infotable>span:nth-of-type(3){
+            border: none;
+            color: red;
+        }
+
+        .divinfotext{
+            font-family: Bitter;
+            font-size: 13px;
+        }
+        .divinfotext>span{
+            margin-left: 14px;
+            display: inline-block;
+            width: 233px;
+            padding-top: 36px;
+        }
+
+        .divtablewebbox{
+            position: relative;
+            text-align: right;
+            padding-right: 43px;
+        }
+        .minititle {
+            color: white;
+            font-family: 'Bitter', serif;
+            font-size: 21px;
+            text-shadow: 3px 0px 16px black;
+        }
+
+        ul.menu.trl {
+            margin: 0;
+            margin-top: 55px;
+            padding: 0;
+            margin-right: -3px;
+        }
+
+        ul.menu.trl {
+            margin: 0;
+            margin-top: 55px;
+            padding: 0;
+            margin-right: -3px
+        }
+        ul.menu.trl>li {
+            color: white;
+            font-family: 'Bitter', serif;
+            cursor: pointer;
+            font-size: 15px;
+            border-top: 1px rgba(255, 255, 255, 0) solid;
+            border-bottom: 1px rgba(255, 255, 255, 0) solid;
+            list-style: none;
+        }
+        ul.menu.trl>li>a{
+            display: block;
+            width: 100%;
+            padding-top: 8px;
+            padding-bottom: 8px;
+            color: white;
+            padding-right: 70px;
+            text-decoration: none;
+            background-image: url(img/dot.png);
+            background-repeat: no-repeat;
+            background-position: bottom 13px right 4px;
+
+            -webkit-transition: 0.2s;
+            -moz-transition: 0.2s;
+            -o-transition: 0.2s;
+            transition: 0.2s;
+            -webkit-transition-timing-function: ease;
+            transition-timing-function: ease;
+
+        }
+        ul.menu.trl>li:hover{
+            border-top: 1px rgba(255, 255, 255, 0.8) solid;
+            border-bottom: 1px rgba(255, 255, 255, 0.8) solid;
+            text-shadow: 4px 0px 30px black;
+        }
+        ul.menu.trl>li:hover>a {
+            background-position: bottom 13px right -36px;
+        }
+
+        .trl {
+            direction: rtl;
+        }
 
 
     </style>
@@ -141,20 +243,19 @@
 <div class="container">
     <div class="menu">
         <div class="myclass">
-                <ul>
-                    <li>
-                        Menu1
-                    </li>
-                    <li>
-                        Menu2
-                    </li>
-                    <li>
-                        Menu3
-                    </li>
-                    <li>
-                        Menu
-                    </li>
-                </ul>
+            <div class="divtablewebbox">
+                <img src="img/icon1.png">
+                <div class="minititle"> Armenia Travel</div>
+            </div>
+
+            <ul class="menu trl">
+                <li><a href="#">Tours</a></li>
+                <li><a href="#">Hotels</a></li>
+                <li><a href="#">Restaurants</a></li>
+                <li><a href="#">Evenements</a></li>
+                <li><a href="#">Map</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
         </div>
 
     </div><div class="content">
@@ -180,6 +281,15 @@
                         <div class="infopreisdivbox"></div>
                         <div class="titlediv"><h2>Yerevan</h2>
                             <span class="infopreisspan">1200 &euro;</span>
+                        </div>
+                        <div class="infotable">
+                            <span>MARC 12</span><span>14 DAYS</span><span> MAX 12 PEOPLE</span>
+                        </div>
+                        <div class="divinfotext">
+                            <span>
+                                Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression. Le Lorem Ipsum est le faux texte standard de l'imprimerie depuis les années 1500, quand un peintre anonyme assembla ensemble des morceaux de texte pour réaliser un livre spécimen de polices de texte.
+
+                            </span>
                         </div>
                     </div>
 
