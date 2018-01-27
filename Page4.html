@@ -24,7 +24,7 @@
             height: 100vh;
         }
         .container>.menu,.container>.menu>.myclass{
-            width: 25%;
+            width: 15%;
         }
         .container>.menu>.myclass{
             position: fixed;
@@ -53,13 +53,13 @@
             background-color: rgba(12, 113, 165, 0.66);
         }
         .container>.content{
-            width: 75%;
+            width: 85%;
             height: auto;
             background-image: url(img/back.png);
             background-position: -5px;
         }
         .container>.content>div{
-            padding: 15px;
+
         }
 
         .content .infodivbox{
@@ -79,7 +79,9 @@
         }
         .content .showdiv>.lineinfobox{
             display: inline-block;
-            width: 450px;
+            width: 50%;
+            max-width: 600px;
+            min-width: 480px;
         }
         .infodivbox>div{
             padding: 15px;
@@ -89,16 +91,17 @@
             width: 100%;
             height: 410px;
             box-shadow: 0px 0px 15px -5px black;
-            background-color: #ffffffc9;
+            background-color: white;
             border-radius: 2px;
             font-family: 'Josefin Sans', sans-serif;
             font-size: 20px;
             text-align: left;
+            border-right: 2px #5baec6 solid;
         }
         .infodivbox>div>div>div.imagediv{
             float: left;
             height: 100%;
-            width: 150px;
+            width: 30%;
             overflow: hidden;
         }
 
@@ -135,8 +138,16 @@
         {
             height: 100%;
         }
-        .infotable{
+        .infodivbox>div>div>div.blockdiv{
+            float: left;
+            width: 70%;
+        }
+        .infodivbox>div>div>div.blockdiv>.titlediv{
+            text-align: center;
+        }
 
+        .infotable{
+            text-align: center;
         }
         .infotable>span{
             display: inline-block;
@@ -160,18 +171,17 @@
 
         .divinfotext{
             font-family: Bitter;
-            font-size: 13px;
+            font-size: 14px;
         }
         .divinfotext>span{
-            margin-left: 14px;
+            padding-left: 15px;
+            padding-right: 15px;
             display: inline-block;
-            width: 233px;
         }
 
         .divtablewebbox{
             position: relative;
-            text-align: right;
-            padding-right: 43px;
+            text-align: center;
         }
         .minititle {
             color: white;
@@ -192,6 +202,9 @@
             margin-top: 55px;
             padding: 0;
             margin-right: -3px
+        }
+        ul.menu.trl>li.activepage{
+            background-color: #ffffff59
         }
         ul.menu.trl>li {
             color: white;
@@ -235,10 +248,9 @@
             direction: rtl;
         }
         .divinfoplusbutton{
-            position: absolute;
             top: 370px;
             text-align: right;
-            width: 400px;
+            width: 100%;
         }
         .divinfoplusbutton>div{
             background: #3498db;
@@ -261,6 +273,7 @@
             text-decoration: none;
             display: inline-block;
             cursor: pointer;
+            margin-right: 15px;
         }
         .divinfoplusbutton>div:hover{
             background: #3cb0fd;
@@ -288,8 +301,44 @@
         }
 
 
+        .titlepage{
+            height: 68px;
+        }
+        .titlepage>div {
 
+            position: fixed;
+            width: 100%;
+            z-index: 10;
+            background-color: rgba(58, 58, 58, 0.63);
+        }
+        .titlepage>div>h1{
 
+            padding-left: 15px;
+            padding-top: 25px;
+            padding-bottom: 18px;
+            font-family: 'Josefin Sans', sans-serif;
+            font-weight: bold;
+            display: inline-block;
+            position: relative;
+            z-index: 10000;
+            color: #5baec6;
+            text-shadow: 0px 0px 12px black;
+            margin: 0;
+            vertical-align: top;
+
+        }
+        .titlepage>div>ul{
+            display: inline-block;
+        }
+        .titlepage>div>ul>li{
+            list-style: none;
+            display: inline-block;
+            padding: 5px 11px;
+            border-right: 1px solid rgba(255, 255, 255, 0.3);
+            color: white;
+            margin-right: 2px;
+            font-family: 'Josefin Sans', sans-serif;
+        }
 
     </style>
 </head>
@@ -304,7 +353,7 @@
             </div>
 
             <ul class="menu trl">
-                <li><a href="#">Tours</a></li>
+                <li class="activepage"><a href="#">Tours</a></li>
                 <li><a href="#">Hotels</a></li>
                 <li><a href="#">Restaurants</a></li>
                 <li><a href="#">Evenements</a></li>
@@ -314,6 +363,23 @@
         </div>
 
     </div><div class="content">
+<div class="titlepage">
+    <div><h1>
+        Tours
+    </h1>
+
+        <ul>
+            <li>All Tours</li>
+            <li>Yerevan</li>
+            <li>Etchmiadzin</li>
+            <li>Garni-Geghard</li>
+            <li>Khor-Virap - Areni - Noravank</li>
+            <li>Tatev</li>
+            <li>Jermuk</li>
+        </ul>
+    </div>
+
+</div>
         <div>
             <div class="showdiv"><div class="lineinfobox">
 
@@ -333,49 +399,124 @@
                         <div class="imagediv">
                             <img src="http://armenia-travel.am/img/tour/1.jpg">
                         </div>
-                        <div class="infopreisdivbox"></div>
-                        <div class="titlediv"><h2>Yerevan</h2>
-                            <span class="infopreisspan">1200 &euro;</span>
-                        </div>
-                        <div class="infotable">
-                            <span>MARC 12</span><span>14 DAYS</span><span> MAX 12 PEOPLE</span>
-                        </div>
-                        <div class="divinfotext">
-                            <div class="divinfostar">
+                        <div class="blockdiv">
 
+                            <div class="infopreisdivbox"></div>
+                            <div class="titlediv"><h2>Yerevan</h2>
+                                <span class="infopreisspan">1200 &euro;</span>
                             </div>
-                            <span>
-                                Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression. Le Lorem Ipsum est le faux texte standard de l'imprimerie depuis les années 1500, quand un peintre anonyme assembla ensemble des morceaux de texte pour réaliser un livre spécimen de polices de texte.
+                            <div class="infotable">
+                                <span>MARC 12</span><span>14 DAYS</span><span> MAX 12 PEOPLE</span>
+                            </div>
+                            <div class="divinfotext">
+                                <div class="divinfostar">
+
+                                </div>
+                                <span>
+                                    17000 completely preserved handwritten books and more than 2000 partially preserved manuscripts are the core of the Matenadaran collection. The majority of the books have precious leather covers with stamping and silver pressing. Most are full of elaborate miniatures, very important elements of medieval Armenian art. The Matenadaran building (architect Mark Grigorian)...
 
                             </span>
-                        </div>
-                        <div class="shared">
-                            <img src="img/sared.png">
-                        </div>
-                        <div class="divinfoplusbutton">
-                            <div>
-                                More Info / Book
+                            </div>
+                            <div class="shared">
+                                <img src="img/sared.png">
+                            </div>
+                            <div class="divinfoplusbutton">
+                                <div>
+                                    More Info / Book
+                                </div>
+
                             </div>
 
                         </div>
+
                     </div>
 
                 </div>
             </div>
             <div class="infodivbox">
                 <div>
+
                     <div>
+
                         <div class="imagediv">
-                             <img src="http://armenia-travel.am/img/tour/5.jpg">
+                            <img src="http://armenia-travel.am/img/tour/5.jpg">
                         </div>
-                        <div class="infopreisdivbox"></div>
-                        <div class="titlediv"><h2>Etchmiadzin</h2>
-                            <span class="infopreisspan">700 &euro;</span>
+                        <div class="blockdiv">
+
+                            <div class="infopreisdivbox"></div>
+                            <div class="titlediv"><h2>Etchmiadzin</h2>
+                                <span class="infopreisspan">1200 &euro;</span>
+                            </div>
+                            <div class="infotable">
+                                <span>MARC 22</span><span>7 DAYS</span><span> MAX 8 PEOPLE</span>
+                            </div>
+                            <div class="divinfotext">
+                                <div class="divinfostar">
+
+                                </div>
+                                <span>
+                                    t is situated 21km west of Yerevan, in the center of Ejmiadzin city. According to the tradition during 60 years days of preaching Gregory the illumination had a dream that Jesus descended from the sky with a golden hammer and revealed to him a place where he was to construct the first Armenian Christian church instead of a pagan temple...
+
+                            </span>
+                            </div>
+                            <div class="shared">
+                                <img src="img/sared.png">
+                            </div>
+                            <div class="divinfoplusbutton">
+                                <div>
+                                    More Info / Book
+                                </div>
+
+                            </div>
+
                         </div>
 
                     </div>
+
                 </div>
             </div>
+            <div class="infodivbox">
+                <div>
+
+                    <div>
+
+                        <div class="imagediv">
+                            <img src="http://armenia-travel.am/img/tour/2.jpg">
+                        </div>
+                        <div class="blockdiv">
+
+                            <div class="infopreisdivbox"></div>
+                            <div class="titlediv"><h2>Garni-Geghard</h2>
+                                <span class="infopreisspan">120 &euro;</span>
+                            </div>
+                            <div class="infotable">
+                                <span>JUL 21</span><span>5 DAYS</span><span> MAX 15 PEOPLE</span>
+                            </div>
+                            <div class="divinfotext">
+                                <div class="divinfostar">
+
+                                </div>
+                                <span>
+                                Garni Pagan Temple is the only witness to the Armenian distant past. It is the best-known structure and symbol of pre-Christian Armenia. This pagan monument, dedicated to the worship of the Sun, was built in 77 AD and is an extraordinary sight to be found in Armenia so far from the rest of the Hellenistic world. The temple follows the style of classical Ancient Greek architecture which began developing in the seventh century BC.
+                            </span>
+                            </div>
+                            <div class="shared">
+                                <img src="img/sared.png">
+                            </div>
+                            <div class="divinfoplusbutton">
+                                <div>
+                                    More Info / Book
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+
             <div class="infodivbox">
                 <div>
                     <div>
