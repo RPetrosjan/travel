@@ -302,7 +302,7 @@
 
 
         .titlepage{
-            height: 68px;
+            height: 100px;
         }
         .titlepage>div {
 
@@ -310,12 +310,30 @@
             width: 100%;
             z-index: 10;
             background-color: rgba(58, 58, 58, 0.63);
+            padding-top: 6px;
+            padding-bottom: 6px;
         }
-        .titlepage>div>h1{
+        .titlepage>div>div{
+            display:  inline-block;
+            position: relative;
+            width: 200px;
+        }
+        .titlepage>div>div>div{
+            position: absolute;
+            white-space: nowrap;
+            margin-top: -23px;
+            color: #efefef;
+            padding-left: 15px;
+            font-family: bitter;
+            font-size: 14px;
+            font-style: italic;
+            text-shadow: 0px 0px 10px #040404;
+        }
+        .titlepage>div>div>h1{
 
             padding-left: 15px;
             padding-top: 25px;
-            padding-bottom: 18px;
+            padding-bottom: 25px;
             font-family: 'Josefin Sans', sans-serif;
             font-weight: bold;
             display: inline-block;
@@ -326,9 +344,18 @@
             margin: 0;
             vertical-align: top;
 
+            text-align: left;
+
+        }
+        .titlepage>div>h1>span{
+
         }
         .titlepage>div>ul{
             display: inline-block;
+            vertical-align: top;
+            width: 665px;
+            white-space: nowrap;
+            overflow: hidden;
         }
         .titlepage>div>ul>li{
             list-style: none;
@@ -364,9 +391,14 @@
 
     </div><div class="content">
 <div class="titlepage">
-    <div><h1>
-        Tours
-    </h1>
+    <div>
+        <div>
+             <h1>
+                Restaurants
+            </h1>
+            <div>Reference site about Lorem Ipsum, giving information on its origins</div>
+        </div>
+
 
         <ul>
             <li>All Tours</li>
